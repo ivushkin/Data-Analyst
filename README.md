@@ -33,7 +33,6 @@
   | `GeekBrains` | [Сертификат](https://github.com/ivushkin/Data-Analyst/blob/c7f4654d0c875e505feef03ba57d9cf8ff0de13b/Certificates/HTML%26CSS.%20%D0%9D%D0%B0%D1%87%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D1%83%D1%80%D0%BE%D0%B2%D0%B5%D0%BD%D1%8C.pdf) | HTML&CSS. Начальный уровень | **Completed** |
   | `GeekBrains` | [Сертификат](https://github.com/ivushkin/Data-Analyst/blob/ce903d8c54ad49adfb21ce064b0d7ff71b9dd44a/Certificates/HTML%26CSS.%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9%20%D0%BA%D1%83%D1%80%D1%81.pdf) | HTML&CSS. Интерактивный курс | **Completed** |
   
-  
   ## Soft-skills
   - ### Курсы
   | Autor | URL | Title | Status
@@ -44,5 +43,8 @@
   | `МТС` |  | Техника ведения переговоров | **Completed** |
   | `МТС` |  | Академия лидерства.Бизнес-прорыв | **Completed** |
   | `Билайн` |  | Управление эффективностью при помощи LEAN | **Completed** |
-
-  
+  - ### Книги
+  | Autor | URL | Title | Status
+  | --- | --- | --- | --- |
+  | Д. Андерсон и Э.Кармайкл | [Scotwork UK](https://www.scotwork.co.uk/ ) | `Канбан.Краткое руководство` | **Completed** |
+  | Д. Деграндис | [Scotwork UK](https://www.scotwork.co.uk/ ) | `Как выявить расхититилей времени и оптимизировать процессы` | **Completed** |
