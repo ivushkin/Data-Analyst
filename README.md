@@ -7,11 +7,16 @@
   | `Билайн` | | Карты и визуализация данных | **Completed** |
   ## Programming
   - ### Qlik
+  - ### JavaScript
+  | `GeekBrains` | [Ссылка на курс](https://practicum.yandex.ru/profile/visual-presentation/) | Веб-разработка для начинающих | **Completed** |
+  | `GeekBrains` | [Ссылка на курс](https://practicum.yandex.ru/profile/visual-presentation/) | Основы программирования | **Completed** |
   
   ## Visual
   | Autor | URL | Title | Status
   | --- | --- | --- | --- |
   | `Яндекс-Практикум` | [Ссылка на курс](https://practicum.yandex.ru/profile/visual-presentation/) | Визуальные презентации | **Completed** |
+  | `GeekBrains` | [Ссылка на курс](https://practicum.yandex.ru/profile/visual-presentation/) | HTML&CSS. Начальный уровень | **Completed** |
+  | `GeekBrains` | [Ссылка на курс](https://practicum.yandex.ru/profile/visual-presentation/) | HTML&CSS. Интерактивный курс | **Completed** |
   
   
   ## Soft-skills
