@@ -42,6 +42,7 @@
   | `МТС` |  | Школа журналистики | **Completed** |
   | `Business Talent Company` | [Business Talent Company](https://btcompany.ru/ ) | Переговоры с арендодателями: технологии победы | **Completed** |
   | `МТС` |  | Техника ведения переговоров | **Completed** |
+  | `МТС` |  | Академия лидерства.Бизнес-прорыв | **Completed** |
   | `Билайн` |  | Управление эффективностью при помощи LEAN | **Completed** |
 
   
