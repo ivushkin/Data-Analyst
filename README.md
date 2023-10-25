@@ -46,5 +46,5 @@
   - ### Книги
   | Autor | URL | Title | Status
   | --- | --- | --- | --- |
-  | Д. Андерсон и Э.Кармайкл | [Scotwork UK](https://www.scotwork.co.uk/ ) | `Канбан.Краткое руководство` | **Completed** |
+  | Д. Андерсон и Э.Кармайкл | [Скачать](https://github.com/ivushkin/Data-Analyst/blob/4e8ca5cc1337a60adadb87b72896f1a7cbd0a91c/Books/%D0%9A%D0%B0%D0%BD%D0%B1%D0%B0%D0%BD.%20%D0%9A%D1%80%D0%B0%D1%82%D0%BA%D0%BE%D0%B5%20%D1%80%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE.pdf) | `Канбан.Краткое руководство` | **Completed** |
   | Д. Деграндис | [Scotwork UK](https://www.scotwork.co.uk/ ) | `Как выявить расхититилей времени и оптимизировать процессы` | **Completed** |
