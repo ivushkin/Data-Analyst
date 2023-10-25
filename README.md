@@ -47,4 +47,4 @@
   | Autor | URL | Title | Status
   | --- | --- | --- | --- |
   | Д. Андерсон и Э.Кармайкл | [Скачать](https://github.com/ivushkin/Data-Analyst/blob/4e8ca5cc1337a60adadb87b72896f1a7cbd0a91c/Books/%D0%9A%D0%B0%D0%BD%D0%B1%D0%B0%D0%BD.%20%D0%9A%D1%80%D0%B0%D1%82%D0%BA%D0%BE%D0%B5%20%D1%80%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE.pdf) | `Канбан.Краткое руководство` | **Completed** |
-  | Д. Деграндис | [Scotwork UK](https://www.scotwork.co.uk/ ) | `Как выявить расхититилей времени и оптимизировать процессы` | **Completed** |
+  | Д. Деграндис | [Скачать](https://github.com/ivushkin/Data-Analyst/blob/1ba199f3a6a819069555bd241b9f49f5d887fede/Books/%D0%9A%D0%B0%D0%BA%20%D0%B2%D1%8B%D1%8F%D0%B2%D0%B8%D1%82%D1%8C%20%D1%80%D0%B0%D1%81%D1%85%D0%B8%D1%82%D0%B8%D1%82%D0%B8%D1%82%D0%B5%D0%BB%D0%B5%D0%B9%20%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%B8%20%D0%B8%20%D0%B2%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%83.pdf) | `Как выявить расхититилей времени и оптимизировать процессы` | **Completed** |
