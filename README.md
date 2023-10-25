@@ -34,6 +34,12 @@
   | `GeekBrains` | [Сертификат](https://github.com/ivushkin/Data-Analyst/blob/ce903d8c54ad49adfb21ce064b0d7ff71b9dd44a/Certificates/HTML%26CSS.%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9%20%D0%BA%D1%83%D1%80%D1%81.pdf) | HTML&CSS. Интерактивный курс | **Completed** |
 
   ## Project Management
+  - ### Курсы
+  | Autor | URL | Title | Status
+  | --- | --- | --- | --- |
+  | `Билайн` |  | Управление эффективностью при помощи LEAN | **Completed** |
+  | `PWC` | [Cсылка на школу](https://www.pwc.com/sk/en/academy.html) | LEAN - management | **Completed** |
+  
   - ### Книги
   | Autor | URL | Title | Status
   | --- | --- | --- | --- |
@@ -50,5 +56,4 @@
   | `Business Talent Company` | [Business Talent Company](https://btcompany.ru/ ) | Переговоры с арендодателями: технологии победы | **Completed** |
   | `МТС` |  | Техника ведения переговоров | **Completed** |
   | `МТС` |  | Академия лидерства.Бизнес-прорыв | **Completed** |
-  | `Билайн` |  | Управление эффективностью при помощи LEAN | **Completed** |
 
