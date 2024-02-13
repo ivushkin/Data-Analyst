@@ -9,6 +9,7 @@
   | `Stepik` | [Ссылка на курс](https://stepik.org/course/61247/promo) | Основы SQL | *To Do* |
   | `Stepik` | [Ссылка на курс](https://stepik.org/course/175382/promo) | Расширенный набор Excel | *To Do* |
   | `Stepik` | [Ссылка на курс](https://stepik.org/course/175382/promo) | Начальный курс SQL от новичка до специалиста | *To Do* |
+  | `LearnDB`| [Ссылка на курс](https://learndb.ru/courses) | Курс с практическими заданиями по SQL в СУБД PostgreSQL | *To Do* |
   ## Programming
   - ### Qlik
   | Autor | URL | Title | Status
