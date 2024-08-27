@@ -1,0 +1,77 @@
+if(RangeSum([+/- МД факт к плану]) <=0, 
+
+Colormix1 (
+RangeSum([+/- МД факт к плану])
+/
+Min(  total
+  ValueList(
+    min( total
+    Aggr([+/- МД факт к плану],[Дор отпр], [Дор назн]))
+    ,
+    min( total
+    Aggr([+/- МД факт к плану],[Филиал], [Филиал назн]))
+    ,
+    min( total
+    Aggr([+/- МД факт к плану],[Дор отпр]))
+    ,
+    min( total
+    Aggr([+/- МД факт к плану],[Филиал]))
+    ,
+    min( total
+    Aggr([+/- МД факт к плану],[Филиал назн]))
+    ,
+    min( total
+    Aggr([+/- МД факт к плану], [Дор назн]))
+//   	,
+//    (If(GetFieldSelections([Месяц])=mToday  and GetFieldSelections([Год])=yToday,
+//    (Sum(total{<Данные={'факт'}>} [Sum-Погрузка])-
+//    if(GetFieldSelections([Тип])='("На 1 декаду"|"ГБ"|"факт"|"ДРС_план"|"ДРС_факт")',
+//    Sum(total{<Данные={'план'}>} [Sum-Погрузка])/10*vToday,
+//    Sum(total{<Данные={'план'}>} [Sum-Погрузка])/DaysInMtoday*vToday)
+//    ),
+//    Sum(total{<Данные={'факт'}>} [Sum-Погрузка])-Sum(total{<Данные={'план'}>} [Sum-Погрузка])))
+  )
+)
+, 
+
+rgb(245,228,227) , rgb(186,57,83) //rgb(192,0,0)
+)
+,
+
+Colormix1 (
+RangeSum([+/- МД факт к плану])
+/
+max(  total
+  ValueList(
+    max( total
+    Aggr([+/- МД факт к плану],[Дор отпр], [Дор назн]))
+    ,
+    max( total
+    Aggr([+/- МД факт к плану],[Филиал], [Филиал назн]))
+    ,
+    max( total
+    Aggr([+/- МД факт к плану],[Дор отпр]))
+    ,
+    max( total
+    Aggr([+/- МД факт к плану], [Дор назн]))
+    ,
+    max( total
+    Aggr([+/- МД факт к плану],[Филиал]))
+    ,
+    max( total
+    Aggr([+/- МД факт к плану],[Филиал назн]))
+//   	,
+//    (If(GetFieldSelections([Месяц])=mToday  and GetFieldSelections([Год])=yToday,
+//    (Sum(total{<Данные={'факт'}>} [Sum-Погрузка])-
+//    if(GetFieldSelections([Тип])='("На 1 декаду"|"ГБ"|"факт"|"ДРС_план"|"ДРС_факт")',
+//    Sum(total{<Данные={'план'}>} [Sum-Погрузка])/10*vToday,
+//    Sum(total{<Данные={'план'}>} [Sum-Погрузка])/DaysInMtoday*vToday)
+//    ),
+//    Sum(total{<Данные={'факт'}>} [Sum-Погрузка])-Sum(total{<Данные={'план'}>} [Sum-Погрузка])))
+  )
+)
+, 
+
+rgb(255,255,255) , rgb(94,176,80)
+)
+)

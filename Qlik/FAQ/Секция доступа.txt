@@ -1,0 +1,137 @@
+Простой вариант: 
+
+// формирование списка без ограничений доступа
+[секция_доступа]:
+Load * Inline [
+ACCESS , USERID
+ADMIN , PGK\Ivushkinns
+
+ADMIN , INTERNAL\SA_SCHEDULER
+];
+
+// включение секции доступа на основе сфорированного списка
+Section Access; // начало действия блока секции доступа
+
+load
+ACCESS,
+Upper(USERID) AS USERID
+Resident [секция_доступа];
+
+Section Application; // окончание действия блока секции доступа
+Drop Table [секция_доступа]; // бросание таблицы со списком доступов
+
+
+
+Сложный вариант: 
+//Формирование промежуточного справочника возможных комбинаций ключа данных для связи их со справочником секций доступа
+Link_Table:
+Load Distinct 
+    [Юридический холдинг] & [Дор отпр] 											as %KEY_DATA,
+    [Юридический холдинг] & [Дор отпр] 											as %KEY_SA
+Resident [Basa_2020];
+Concatenate (Link_Table)
+Load Distinct 
+    [Юридический холдинг] & [Дор отпр] 											as %KEY_DATA,
+    [Юридический холдинг] & '*' 											as %KEY_SA
+Resident [Basa_2020];
+Concatenate (Link_Table)
+Load Distinct 
+    [Юридический холдинг] & [Дор отпр] 											as %KEY_DATA,
+    '*' & [Дор отпр] 													as %KEY_SA
+Resident [Basa_2020];
+Concatenate (Link_Table)
+Load Distinct 
+    [Юридический холдинг] & [Дор отпр]											as %KEY_DATA,
+    '*' & '*' 														as %KEY_SA
+Resident [Basa_2020];
+Concatenate (Link_Table)
+Load * Inline [
+    %KEY_DATA,  %KEY_SA
+    БЕЗ_ДАННЫХ, БЕЗ_ДАННЫХ
+];
+
+
+
+
+//Формирование секций доступа
+
+
+
+// формирование списка по ЦА -> без ограничений
+[секция_доступа]:
+LOAD 
+	if(userid = 'menshovis' , 'ADMIN', 'USER') 									as ACCESS, 	// присвоение уровня дотсупа ADMIN для сотрудников отдела
+	'PGK\' & Upper(userid) 												as  USERID,					// добавление домена PGK к учетной записи
+    '*' 														as [Юридический холдинг],	// определение ограничений по полю ( <<*>> - отсутвие ограничений)
+    '*' 														as [Дор отпр]				// определение ограничений по полю ( <<*>> - отсутвие ограничений)
+    Where sphere = 'ЦА';
+SELECT * FROM MDS.mdm."perfman_section_access" ;
+
+
+// повторное включение в список сотрудников отдела с правами администратора на случай дефолта справочника на MDS, это позволит не потерять доступ к приложению
+//INTERNAL\SA_SCHEDULER <-- необходимо дать доступ для осуществления обновления по расписанию
+Concatenate([секция_доступа])
+Load * Inline [
+ACCESS	, USERID				, Юридический холдинг 	, Дор отпр
+ADMIN	, PGK\menshovis			, *					    , *
+
+];
+
+
+// формирование списка филиалов (не ЦА) -> с набором ограничений по полям согласно справочника
+Concatenate([секция_доступа])
+LOAD 
+	'USER'    													as ACCESS,
+	'PGK\' & Upper(userid) 												as USERID, 
+    jur_holding 													as [Юридический холдинг],
+    departure_road													as [Дор отпр]
+    Where sphere <> 'ЦА';
+SELECT * FROM MDS.mdm."perfman_section_access" ;
+
+
+// создание фиктивного пользователя с полным списком возможных холдингов и дорог
+NoConcatenate
+[список_всех_холдингов]:
+load Distinct
+    'USER'    														as ACCESS,
+    'PGK\SUPERUSER' 													as USERID,
+    [Юридический холдинг],
+    [Дор отпр]
+Resident [Basa_2020];
+
+Concatenate([секция_доступа])
+load
+    ACCESS,
+    USERID,
+    [Юридический холдинг],
+    [Дор отпр]
+Resident [список_всех_холдингов];
+Drop Table [список_всех_холдингов];
+
+
+
+// Список всех пользователей с доступами без данных, чтобы была возможность открыть приложение
+Concatenate([секция_доступа])
+load
+    'USER' 														as ACCESS,
+    'PGK\' & Upper(login) 												as USERID,
+	'БЕЗ_' 														as [Юридический холдинг],
+    'ДАННЫХ' 														as [Дор отпр]
+FROM [lib://Каталог_с_техническими_данными/All_Users.qvd]
+(qvd);
+
+
+
+// включение секции доступа
+Section Access;
+
+load
+    ACCESS,
+    Upper(USERID) 													as USERID,
+    [Юридический холдинг] & [Дор отпр] 											as %KEY_SA
+Resident [секция_доступа];	
+
+Section Application;
+
+
+Drop Table [секция_доступа];

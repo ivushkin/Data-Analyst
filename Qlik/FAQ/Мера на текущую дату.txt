@@ -1,0 +1,1 @@
+Count({<[ДатаОтчета.autoCalendar.Date] = {"$(=Max([ДатаОтчета.autoCalendar.Date]))"}>} [НомерВагона])

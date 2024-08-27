@@ -1,0 +1,14 @@
+//Путь до папки
+let vStore 				= 'lib://ЛП_СЕРВЕР/QLIK/';
+
+
+//Переменные
+//Переменные
+let vTodayDay 			= Day(Num(Today()));
+let vTodayMonth 		= Month(Today());
+let vTodayYear			= Year(Today());
+let vTodayDateMY 		= date(Makedate(mid(Now(),7,4),Mid(Now(),4,2),mid(Now(),1,2)),'MM.YYYY');
+let vTodayDate 			= date(Now(),'DD.MM.YYYY');
+let vTodayDateD 		= date(Makedate(mid(Now(),7,4),Mid(Now(),4,2),mid(Now(),1,2)),'DD.MM.YYYY');
+let vToday 			= TimeStamp(Now(),'YYYY.MM.DD hh:mm');
+let vDateGenerator		= num(today());

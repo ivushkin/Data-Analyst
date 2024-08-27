@@ -1,0 +1,1 @@
+   	Day(RangeMin(MonthEnd([ДатаОтчета]),Today())) 																							AS CountDay,
