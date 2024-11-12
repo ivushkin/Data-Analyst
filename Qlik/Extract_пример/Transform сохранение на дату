@@ -1,0 +1,13 @@
+//Переменная текущей даты для названия файла
+let vDateLoad= Date(today(),'YYYYMMDD');
+
+
+LOAD
+	*
+FROM [lib://Extract_SAP_BW_ZTMVRC026_Q001/ZTMVRC026_Q001_$(vDateLoad).qvd]
+(qvd);
+
+
+
+Store [Дин.сальдо] into [lib://ЛП_СЕРВЕР/QLIK/ДИНСАЛЬДО/TRANSFORM.ZTMVRC026_Q001_$(vDateLoad).qvd] (qvd);
+Drop Tables [Дин.сальдо];
