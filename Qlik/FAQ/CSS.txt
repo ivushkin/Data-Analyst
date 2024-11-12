@@ -1,0 +1,116 @@
+// базовые настройки
+/* Sheet Background Color
+   ================================================ */
+.qv-panel-sheet {
+    background: linear-gradient(159deg, rgba(11,25,196,1) 0%, rgba(150,190,252,1) 18%, rgba(255,255,255,1) 47%, rgba(255,255,255,1) 100%)
+}
+ 
+ 
+/* Filter Restyling
+   ================================================ */
+.qv-listbox .serverLocked, .qv-listbox .serverSelected, .qv-listbox li.selected {
+    background-color: #162d81;
+    color: #fff;
+    border-bottom: 1px solid #0aaf54;
+}
+ 
+ 
+/* Bar Chart Restyling
+    ================================================ */
+.qv-object-barchart {
+    border-radius: 3px;
+    box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.16);
+}
+ 
+/* Pivot Table Restyling
+   ================================================ */
+/* Pivot: Null Values invisible */
+.cell.ng-scope.null-value {
+    background-color:rgba(0,0,0,0); color: rgba(0,0,0,0); font-size:0px;
+}
+/* Pivot: Bold cells as normal */
+.qv-pt .cell.bold {
+    font-weight: 300;
+}
+/* Pivot: No dropdown listboxes */
+[tid="meta.rows"],[tid="meta.columns"] {
+    display:none;
+}
+ 
+ 
+/* Table Inter Row Coloring (even, odd)
+   ================================================ */
+.qv-object-content-container .qv-object-content table tr:nth-of-type(even) {
+    background-color: #7C002F; color: white;
+}
+ 
+ 
+/* Straight Table Header Restyling
+   ================================================ */
+i.lui-icon.lui-icon--search.ng-scope {
+    background-color: #7C002F;
+    color: white !important;
+}
+ 
+.qv-st-header {
+    background-color: #7C002F;
+    color: white !important;
+}
+ 
+.touch-off .qv-st-interactive:not(.qv-st-selections-active):not(.qv-st-reordering-active) .qv-st-header:not(.qv-st-custom-header) .qv-st-header-cell-search:hover:not(:active):not(.qv-st-header-cell-search-open), .touch-off .qv-st-navigatable:not(.qv-st-selections-active):not(.qv-st-reordering-active) .qv-st-header-sortable:not(.qv-st-custom-header):hover:not(:active):not(.qv-st-header-cell-search-open) {
+    background-color: #7C002F;
+    cursor: pointer;
+}
+ 
+div.qv-st-header-cell-wrapper.ng-scope {
+    background-color: #7C002F; color: white;
+}
+ 
+/* Hide Multi KPI
+   ================================================ */
+.top-meta-headers, .left-meta-headers, .qv-object-qlik-multi-kpi {
+    display: none;
+}
+ 
+ 
+/* Export Button Restyling (swr-sense-export extension)
+   ================================================ */
+.qv-object-swr-sense-export {
+    padding: 0 0px 0px !important;
+    border: 0px !important;
+    border-radius: 0px !important;
+}
+ 
+.qv-object-swr-sense-export  div[class="qv-inner-object no-titles"] {
+    padding: 0 0px 0px !important;
+    border: 0px !important;
+    border-radius: 0px  !important;
+    background-color: rgba(0,0,0,0) !important;
+}
+ 
+.qv-object-swr-sense-export  header[class="qv-object-header thin cell-nav-disabled"] {
+    display: none;
+}
+ 
+.qv-object-swr-sense-export .btn-primary {
+    color: #fff;
+    background-color: #006580;
+    border-color: #006580;
+}
+ 
+.top-meta-headers, .left-meta-headers, .qv-object-qlik-multi-kpi{
+    display: none;
+}
+ 
+/* Make chart subtitle style same as title one
+   ================================================ */
+ 
+.qv-object-header {
+    padding-bottom: 0px !important;
+ }
+ 
+.qv-object-subtitle {
+   font-weight: bold !important;
+   color: #000000 !important;
+   font-size: 1.23077em !important;
+}
