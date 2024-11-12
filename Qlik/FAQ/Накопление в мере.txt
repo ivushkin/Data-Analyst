@@ -1,0 +1,18 @@
+let vToday = Day(Num(Today()))-1;
+let mToday = date(Today(),'MMMM');
+let yToday = Year(Num(Today()));
+let DaysInMtoday = Day(Monthend(Today()));
+
+
+
+// пример 1. Накопление в зависимости от типа выбранной кнопки (Тип плана)
+Sum({<Данные={'план'}, [Тип] = { '$(=[Тип_плана])'  }>} [Sum-Погрузка])
+      / if( (Year(Today()) = [Год] and Num(Month(Date#([Месяц], 'MMMM'))) =num(month(Today()))), if( [Тип_плана] = 'На 1 декаду', 10, Day(Monthend(Today()))), 1)  
+    			* if( (Year(Today()) = [Год] and Num(Month(Date#([Месяц], 'MMMM'))) =num(month(Today()))) , vToday, 1)
+
+
+//Пример 2. Накопление автоматической в зависимости от выбранного месяца
+If(([Месяц])=mToday  and ([Год])=yToday,
+Sum({<Тип={'MBO'}>} [Sum-Погрузка])/DaysInMtoday*vToday,
+Sum({<Тип={'MBO'}>} [Sum-Погрузка]))
+
