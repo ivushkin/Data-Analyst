@@ -1,1 +1,20 @@
 
+Базовые возможности QS (внешний ресурс)
+1. Знакомство с готовым приложением https://youtu.be/onOL6Cv7yBQ
+2. Как загрузить данные и сделать приложение https://youtu.be/KRdIlJ0BmfA
+3. Линейные графики и Карта дерева https://youtu.be/RtkfDP5qqSI
+4. Как рассчитать ключевые показатели эффективности KPI https://youtu.be/gVJifeo8tl8
+5. Редактор загрузки данных, данные для карты https://youtu.be/-fkUT0gEU0A
+6. Показатели на Карте и данные из Qlik Data Market https://youtu.be/YSEzY4sDP9w
+7. Создание повторно используемых элементов https://youtu.be/kF_PLmNXG1M
+8. Как создавать истории и презентации https://youtu.be/cTMSGxxAZgU
+9. Марафон DataYoga https://datayoga.ru/bookofmarathon21
+
+Синтаксис Set-анализа:
+Текстовая версия: https://ivan-shamaev.ru/set-analysis-in-qlikview/
+Видео за 50 мин: https://www.youtube.com/watch?v=H7oFmmus8Z0
+
+
+Nprinting
+Обзор возможностей: https://youtu.be/HQD3aX8a2kw 
+Пример создания отчета: https://youtu.be/RKSIOHgjQjE
