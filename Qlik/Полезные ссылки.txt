@@ -9,6 +9,7 @@
 7. Создание повторно используемых элементов https://youtu.be/kF_PLmNXG1M
 8. Как создавать истории и презентации https://youtu.be/cTMSGxxAZgU
 9. Марафон DataYoga https://datayoga.ru/bookofmarathon21
+10. Условные функции: https://biconsult.ru/products/uslovnye-funkcii-qlik-sense-sintaksis-i-primer
 
 Синтаксис Set-анализа:
 Текстовая версия: https://ivan-shamaev.ru/set-analysis-in-qlikview/
@@ -18,3 +19,16 @@
 Nprinting
 Обзор возможностей: https://youtu.be/HQD3aX8a2kw 
 Пример создания отчета: https://youtu.be/RKSIOHgjQjE
+Учебный курс: https://biconsult.ru/products/uchebnyy-kurs-po-nprinting 
+
+
+Инкрементальная загрузка: 
+Использование QVD: https://fbconsult.ru/bi-tekhnologii/qvd-dlya-inkrementalnoi-zagruzki
+
+
+Гайд по темам: 
+https://habr.com/ru/companies/innotech/articles/711896/ 
+Конвертер цветов: https://colorscheme.ru/color-converter.html
+
+Мэшап: 
+https://biconsult.ru/products/uchebnoe-posobie-po-meshap-qlik-sense-mashup-9-shagov-dlya-sozdaniya-meshapa
