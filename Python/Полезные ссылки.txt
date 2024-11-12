@@ -1,0 +1,14 @@
+Jupyter Notebook: https://practicum.yandex.ru/blog/chto-takoe-jupyter-notebook/
+
+Функции Xpath Selenium: https://habr.com/ru/companies/otus/articles/533354/ 
+Шпаргалка по Selenium: https://habr.com/ru/companies/otus/articles/596071/ 
+https://habr.com/ru/articles/273089/ 
+
+Работа с Excel: https://habr.com/ru/companies/otus/articles/331998/
+
+Логи: https://habr.com/ru/companies/otus/articles/782646/
+
+Шпаргалка по Pillow: https://python-scripts.com/pillow-crop 
+https://habr.com/ru/articles/681248/ 
+
+
