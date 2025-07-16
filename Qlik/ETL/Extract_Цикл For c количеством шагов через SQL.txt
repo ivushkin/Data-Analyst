@@ -1,0 +1,103 @@
+//определяем список дат, которые надо прогрузить, старые даты до 01.04.25 не перезаписываем и не проверяем, чтобы не потерять зафиксированные цифры.
+
+SliceDate:
+SELECT DISTINCT actdate
+FROM  s_grnplm_as_cib_gm_mart_tib.v_dkk_data_arc_oper_slice
+WHERE 1=1
+    AND actdate > '2025-03-31'
+ORDER BY actdate DESC
+LIMIT 5
+;
+
+
+
+
+For i = 1 to FieldValueCount('actdate')
+
+      LET vSliceDate             = FieldValue('actdate', i);
+      LET vFileNameOperational   = 'lib://Название каталога/Файл_Срез_' & DATE('$(vSliceDate)', 'YYYYMMDD') & '.qvd';
+      LET vSegment               = 'segment=$(vSliceDate)';
+
+      ОПУ:
+      LOAD
+           hs_id                  AS HS_ID
+      ,    layercode              AS LAYERCODE
+      ,    hs_nm                  AS HS_NM
+      ,    currencycode           AS CURRENCYCODE
+      ,    amountrub_p_usd        AS AMOUNTRUB_P_USD
+      ,    src_crm_id             AS SRC_CRM_ID
+      ,    fio_banker             AS FIO_BANKER
+      ,    crm_id                 AS CRM_ID
+      ,    belonging              AS BELONGING
+      ,    cust_nm_full           AS CUST_NM_FULL
+      ,    cod_opu                AS COD_OPU
+      ,    desk_nm                AS DESK_NM
+      ,    keyclients_nm          AS KEYCLIENTS_NM
+      ,    segm                   AS SEGM
+      ,    amountrub              AS AMOUNTRUB
+      ,    keyclients_id          AS KEYCLIENTS_ID
+      ,    desk_id                AS DESK_ID
+      ,    pldate                 AS PLDATE
+      ,    actdate                AS ACTDATE                                                                                                                                                       //дата среза
+      ,    load_date              AS LOAD_DATE
+      ,    report_id              AS REPORT_ID
+      ,    epk_id                 AS EPK_ID
+      ;
+
+      SELECT
+      hs_id
+      ,        layercode
+      ,        hs_nm
+      , currencycode
+      , amountrub_p_usd
+      ,        src_crm_id
+      ,        fio_banker
+      ,        crm_id
+      ,        belonging
+      ,        cust_nm_full
+      ,        cod_opu
+      ,        desk_nm
+      ,        keyclients_nm
+      ,        segm
+      ,        amountrub
+      ,        keyclients_id
+      ,        desk_id
+      ,        pldate
+      , actdate
+      ,        load_date
+      ,        report_id
+      ,        epk_id
+      , CAST(corr_source AS TEXT) as corr_source
+      FROM  s_grnplm_as_cib_gm_mart_tib.v_dkk_data_arc_oper_slice s
+            INNER JOIN(
+                        SELECT
+                        actdate      AS actdate_max,
+                        MAX(opu_id) AS max_opu_id
+                        FROM s_grnplm_as_cib_gm_mart_tib.v_dkk_data_arc_oper_slice
+                        GROUP BY actdate
+                            ) m
+            ON s.actdate = actdate_max
+            AND s.opu_id::int8 = max_opu_id::int8
+      WHERE 1=1
+          AND actdate = '$(vSliceDate)'
+          AND NOT layercode = 'SHORT_FORECAST'
+          AND  (
+                (keyclients_id IS NOT NULL AND segm = 'КСБ')
+                OR segm = 'КФИ'
+               )
+      ;
+
+
+      TAG TABLE ОПУ WITH 'fileGroup=ОПУ';
+      LET vComment               = 'Оперативный срез за  $(vSliceDate)';
+      COMMENT TABLE ОПУ WITH '$(vComment)';
+      $(Cat.Files.v.StoreMode) ОПУ INTO [$(vFileNameOperational)](QVD);
+
+Drop Table ОПУ;
+next i;
+
+
+#удаляем временную таблицу
+Drop table SliceDate;
+
+
