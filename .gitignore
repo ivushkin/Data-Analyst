@@ -2,3 +2,4 @@
 Python/TelegramBots/.venv
 Python/TelegramBots/.idea
 Qlik/Первое приложение с несколькими источниками
+Python/TelegramBots/*.env
