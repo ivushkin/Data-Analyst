@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=69.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tgbot-with-rag"
+version = "0.1.0"
+requires-python = ">=3.11"
+description = "Телеграм-бот с поддержкой RAG и векторным хранилищем"
+dependencies = [
+    "aiogram",
+    "pydantic",
+    "pydantic-settings",
+    "langchain",
+    "langchain-community",
+    "langchain-openai",
+    "langchain-text-splitters",
+    "langchain-chroma",
+    "pdfminer.six",
+    "pypdf",
+    "openai",
+    "requests",
+    "python-docx",
+    "openpyxl",
+    "pytesseract",
+    "pdf2image",
+    "Pillow",
+    "aiohttp",
+    "docker",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "mypy",
+]
+
+[project.scripts]
+tgbot-with-rag = "src.main:run_cli"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+

@@ -1,0 +1,35 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    environment:
+      - OLLAMA_KEEP_ALIVE=24h
+      - OLLAMA_NO_TELEMETRY=1
+    ports:
+      - "11434:11434"
+    volumes:
+      - ./data/ollama:/root/.ollama
+    restart: unless-stopped
+
+  bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: tgbot-with-rag:latest
+    env_file:
+      - .env
+    environment:
+      - ANONYMIZED_TELEMETRY=False
+    depends_on:
+      - ollama
+    volumes:
+      - ./src:/app/src:rw
+      - ./data/vector:/data/chroma:rw
+      - ./data/app:/app/data:rw
+      - ./web:/app/web:rw
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    group_add:
+      - "0"
+

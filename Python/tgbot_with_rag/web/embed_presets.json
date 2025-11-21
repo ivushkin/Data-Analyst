@@ -1,0 +1,57 @@
+[
+  {
+    "title": "qwen3-embedding:0.6b · 639MB · 32K токенов",
+    "name": "qwen3-embedding:0.6b",
+    "pull": "qwen3-embedding:0.6b",
+    "size": "639MB",
+    "ctx": "32K",
+    "params": "—",
+    "vram": "2272"
+  },
+  {
+    "title": "qwen3-embedding:4b · 2.5GB · 40K токенов",
+    "name": "qwen3-embedding:4b",
+    "pull": "qwen3-embedding:4b",
+    "size": "2.5GB",
+    "ctx": "40K",
+    "params": "—",
+    "vram": "15341"
+  },
+  {
+    "title": "qwen3-embedding:8b · 4.7GB · 40K токенов",
+    "name": "qwen3-embedding:8b",
+    "pull": "qwen3-embedding:8b",
+    "size": "4.7GB",
+    "ctx": "40K",
+    "params": "—",
+    "vram": "28866"
+  },
+  {
+    "title": "embeddinggemma · 622MB · 2K токенов",
+    "name": "embeddinggemma",
+    "pull": "embeddinggemma",
+    "size": "622MB",
+    "ctx": "2K",
+    "params": "—",
+    "vram": "578"
+  },
+  {
+    "title": "nomic-embed-text · 274MB · 2K токенов",
+    "name": "nomic-embed-text",
+    "pull": "nomic-embed-text",
+    "size": "274MB",
+    "ctx": "2K",
+    "params": "—",
+    "vram": "522"
+  },
+  {
+    "title": "bge-m3 · 1.2GB · 8K токенов",
+    "name": "bge-m3",
+    "pull": "bge-m3",
+    "size": "1.2GB",
+    "ctx": "8K",
+    "params": "—",
+    "vram": "2167"
+  }
+]
+

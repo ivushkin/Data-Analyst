@@ -54,7 +54,7 @@ def send_weather_report():
 
 
 # Настройка расписания
-schedule.every().day.at("17:05").do(send_weather_report)
+schedule.every().day.at("09:00").do(send_weather_report)
 
 # Бесконечный цикл для выполнения запланированных задач
 while True:

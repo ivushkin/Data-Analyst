@@ -1,0 +1,6 @@
+temp
+__pycache__
+.env
+data/
+.DS_Store
+testfiles/

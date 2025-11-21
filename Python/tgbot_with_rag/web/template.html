@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Настройки бота</title>
+    <link href="/static/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body class="bg-light">
+    <div class="container py-4">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1 class="h3">Настройки бота</h1>
+        <div class="d-flex align-items-center ms-auto" style="gap:8px;">
+          <button id="saveBtn" class="btn btn-primary">Сохранить изменения</button>
+          <button id="restartBtn" class="btn btn-danger">Перезапустить бота</button>
+        </div>
+      </div>
+
+      <h2 class="h5 mt-1">Настройки LLM</h2>
+      <div class="mb-3">
+        <label class="form-label">Базовый URL <button class="btn btn-sm btn-outline-secondary ms-2 help" data-help="Базовый адрес совместимого OpenAI API (cloud.ru/OpenAI и т.п.).">?</button></label>
+        <input class="form-control" id="OPENAI_BASE_URL" value="__OPENAI_BASE_URL__">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Токен <button class="btn btn-sm btn-outline-secondary ms-2 help" data-help="API-ключ для вызова модели (хранится в JSON на диске контейнера).">?</button></label>
+        <input class="form-control" id="OPENAI_API_KEY" value="__OPENAI_API_KEY_MASKED__">
+        <input type="hidden" id="OPENAI_API_KEY_REAL" value="__OPENAI_API_KEY__">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Организация (если требуется) <button class="btn btn-sm btn-outline-secondary ms-2 help" data-help="Идентификатор организации для некоторых провайдеров.">?</button></label>
+        <input class="form-control" id="OPENAI_ORGANIZATION" value="__OPENAI_ORGANIZATION__">
+      </div>
+      <div class="mb-4">
+        <label class="form-label">LLM модель <button class="btn btn-sm btn-outline-secondary ms-2 help" data-help="Список моделей подтягивается с /v1/models указанного провайдера.">?</button></label>
+        <div class="d-flex gap-2">
+          <select class="form-select" id="OPENAI_RESPONSE_MODEL_SELECT"></select>
+          <button id="REFRESH_LLM_MODELS" class="btn btn-outline-secondary">Обновить список</button>
+        </div>
+        <input class="form-control mt-2" id="OPENAI_RESPONSE_MODEL" value="__OPENAI_RESPONSE_MODEL__" style="display:none;">
+      </div>
+
+      <h2 class="h5 mt-4">Эмбеддинг</h2>
+      <div class="mb-3">
+        <label class="form-label">Модель <button class="btn btn-sm btn-outline-secondary ms-2 help" data-help="Выберите модель эмбеддингов Ollama.">?</button></label>
+        <select class="form-select" id="EMBEDDINGS_MODEL_PRESET"></select>
+        <div id="EMBED_INFO" class="text-muted small mt-1"></div>
+      </div>
+      <div class="mb-3 d-flex align-items-center gap-2">
+        <button id="EMBED_PULL_BTN" class="btn btn-outline-primary">Загрузить</button>
+        <div class="flex-grow-1">
+          <div class="progress" style="height: 12px;">
+            <div id="EMBED_PULL_PROGRESS" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <div id="EMBED_PULL_STATUS" class="small text-muted mt-1"></div>
+        </div>
+      </div>
+
+      <!-- Поля векторной БД убраны: настраиваются только через .env -->
+      <input class="form-control" id="EMBEDDINGS_MODEL" value="__EMBEDDINGS_MODEL__" style="display:none;">
+
+      <h2 class="h5 mt-4">Доступ</h2>
+      <div class="mb-3">
+        <label class="form-label">Разрешённые пользователи (ID через запятую)
+          <button class="btn btn-sm btn-outline-secondary ms-2 help" data-help="Укажите один или несколько numeric ID пользователей Telegram через запятую. Другие пользователи будут игнорироваться.">?</button>
+        </label>
+        <input class="form-control" id="ALLOWED_USERS" value="__ALLOWED_USERS__">
+      </div>
+
+      <h2 class="h5 mt-4">История диалога</h2>
+      <div class="mb-3">
+        <label class="form-label">Максимум последних пар вопрос–ответ
+          <button class="btn btn-sm btn-outline-secondary ms-2 help" data-help="Сколько последних пар (вопрос–ответ) хранить в оперативной памяти на пользователя. 0 — не хранить. Мин: 0, Макс: 50. По умолчанию: 10.">?</button>
+        </label>
+        <input class="form-control" type="number" min="0" max="50" id="HISTORY_MAX_PAIRS" value="__HISTORY_MAX_PAIRS__">
+      </div>
+
+      <div class="mt-2 d-flex justify-content-end align-items-center">
+        <span id="saveResult" class="text-muted"></span>
+      </div>
+
+      <h2 class="h5 mt-5">Логи</h2>
+      <div class="mb-3">
+        <div class="card">
+          <div class="card-body bg-dark text-white" style="font-family: monospace; font-size: 12px; max-height: 400px; overflow-y: auto;">
+            <div id="dockerLogs"></div>
+          </div>
+        </div>
+        <div class="text-muted small mt-1">Последние 100 строк логов из контейнера</div>
+      </div>
+    </div>
+
+    <script src="/static/bootstrap.bundle.min.js"></script>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
+
+
