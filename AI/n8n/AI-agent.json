@@ -1,0 +1,292 @@
+{
+  "name": "TelegramGPT",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "*"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "f1317fef-8ad8-443a-ba9c-2caab1e45ca1",
+      "name": "Telegram Trigger",
+      "webhookId": "aaa80d9c-31bd-4d5f-8350-560869a96aa2",
+      "credentials": {
+        "telegramApi": {
+          "id": "nYel0Y4XtzzgbhET",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "f7ebdf4c-fd08-486a-b535-4c023cd1123a",
+              "leftValue": "={{ $json.business_message }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        192,
+        0
+      ],
+      "id": "a35d6a4f-c985-4a82-b74d-c3b51c893611",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.business_message.text }}",
+        "options": {
+          "systemMessage": "=Ты — AI-ассистент Николая. Отвечаешь в Telegram всем от его лица.\n\n🗣 Стиль общения:\n– Только на русском языке\n– Неформальный, уверенный, грамотный\n– Простые, короткие и понятные ответы\n– Можно с лёгким юмором и эмодзи — по ситуации\n– Без технических терминов (ChatGPT, API и прочее не упоминать)\n\n🔥 Алгоритм первого ответа:\nЕсли человек впервые написал, начинай так:\n\nПривет! Я ассистент Николая. Он скоро подойдёт, а пока могу подсказать 🤖\nРасскажи, чего хочешь от ИИ — покажу, как это решить 🚀\n\n\n🎯 Задача ассистента:\n– Отвечать на вопросы\n\n💼 Предложение:\nИИ-агенты Николая — это умные помощники, которые:\n– Отвечают на любые вопросы\n\n📎 Используй базу:\n– think — когда нужно \"задуматься\"\n\n🔒 Запрещено:\n– Писать списками, символами (* _ -)\n\n🧠 Поведение:\n– Отвечай быстро, просто, по делу\n– Не лей воду\n– Помогай выбрать задачу для ИИ\n– Подключай Николая при сложных запросах или готовности работать"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        464,
+        0
+      ],
+      "id": "ef099cff-99a1-4170-9fd2-8518cf2ebcf6",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "amount": 3
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        800,
+        0
+      ],
+      "id": "bc8c71bb-a875-470a-8915-2f656d14a150",
+      "name": "Wait",
+      "webhookId": "46c24dcf-6353-4b03-99cc-5424fc10cace"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Telegram Trigger').item.json.business_message.from.id }}",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        352,
+        528
+      ],
+      "id": "fc492c33-a0fd-4d32-8799-22626e943fcc",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "content": "##        Мозг",
+        "height": 200,
+        "width": 280
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        192,
+        464
+      ],
+      "id": "ccf115b3-566d-4329-8b3a-64f56a40b446",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Инструменты",
+        "height": 200,
+        "width": 600
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        560,
+        464
+      ],
+      "id": "af3cd385-0cf3-425c-a711-aabbb483f16a",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "description": "Используй, если нужно:\nСформировать гипотезу\nПродумать структуру ответа\nОценить неочевидный запрос\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolThink",
+      "typeVersion": 1,
+      "position": [
+        1072,
+        528
+      ],
+      "id": "6b9c2ff2-cbcc-4d67-ab72-6a3935274452",
+      "name": "think"
+    },
+    {
+      "parameters": {
+        "url": "https://api.telegram.org/bot8473026466:AAEkhxF6h-EZNAgfKr-kSphDq_RcKH_CnJ4/sendMessage",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "business_connection_id",
+              "value": "={{ $('Telegram Trigger').item.json.business_message.business_connection_id }}"
+            },
+            {
+              "name": "chat_id",
+              "value": "={{ $('Telegram Trigger').item.json.business_message.from.id }}"
+            },
+            {
+              "name": "text",
+              "value": "={{ $json.output }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1008,
+        0
+      ],
+      "id": "74c60cca-b84d-4f2e-845d-010fde05d56d",
+      "name": "Telegram Response"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        224,
+        528
+      ],
+      "id": "cd2554d0-ceef-4df4-96e4-f42ccbe58f25",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "hAZf5Hme2l3aT22T",
+          "name": "OpenRouter account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Telegram Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "think": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "a095fba6-7785-49ae-8cf7-14087f791d40",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "91f720a7f57af2997d9dedb355c981c52b9ed41b22420f4939871c3089760996"
+  },
+  "id": "Vw7S6JJKhAerSplg",
+  "tags": []
+}
